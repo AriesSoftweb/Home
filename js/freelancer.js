@@ -7,6 +7,31 @@ $(function() {
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });
+
+    $("#contactForm").validate({
+
+        // Specify the validation rules
+        rules: {
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            message: "required"
+        },
+
+        // Specify the validation error messages
+        messages: {
+            firstname: "Please enter your name",
+            email: "Please enter a valid email address",
+            message: "Please enter message"
+        },
+
+        submitHandler: function (form) {
+            form.submit();
+        }
+    });
+
 });
 
 // Floating label headings for the contact form
